@@ -1,6 +1,5 @@
 # Pracownicy
-
-    Aplikacja "Pracownicy" jest systemem zarządzania pracownikami w firmie.Pozwala na logowanie, wyświetlanie, dodawanie i usuwanie pracowników, zarządzanie notatkami oraz zmianę hasła.
+Aplikacja "Pracownicy" jest systemem zarządzania pracownikami w firmie.Pozwala na logowanie, wyświetlanie, dodawanie i usuwanie pracowników, zarządzanie notatkami oraz zmianę hasła.
 
 ## Funkcje
 
