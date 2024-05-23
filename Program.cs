@@ -106,8 +106,8 @@ namespace Pracownicy
                     Console.WriteLine("2. Dodaj notatkę");
                     Console.WriteLine("3. Dodaj Pracownika");
                     Console.WriteLine("4. Wyloguj");
-                    string option2 = Console.ReadLine();
-                    switch (option2)
+                    Console.Read();
+                    switch (Console.ReadLine())
                     {
                         case "1":
                             ShowNotes(conn);
@@ -137,9 +137,8 @@ namespace Pracownicy
                     Console.WriteLine("6. Wyświetl notatki o pracownikach");
                     Console.WriteLine("7. Zmien Hasło dla pracownika");
                     Console.WriteLine("8. Wyloguj");
-                    string option3 = Console.ReadLine();
-
-                    switch (option3)
+                    Console.Read();
+                    switch (Console.ReadLine())
                     {
                         case "1":
                             AddWorker(conn);
@@ -178,8 +177,8 @@ namespace Pracownicy
                     Console.WriteLine("5. Usun Pracownika");
                     Console.WriteLine("6. Dodaj pracownika");
                     Console.WriteLine("7. Wyloguj");
-                    string option4 = Console.ReadLine();
-                    switch (option4)
+                    Console.Read();
+                    switch (Console.ReadLine())
                     {
                         case "1":
                             ShowNotes(conn);
@@ -246,15 +245,71 @@ namespace Pracownicy
             Environment.Exit(0);
         }
 
+        /************************************** 
+         * nazwa funkcji:        ChangePassowrd
+         * parametry wejściowe: conn (połączenie z bazą danych)
+         * wartość zwracana:     Funkcja umożliwia zmiane hasła dla pracownika o konkretnym id
+         * autor:                Bartosz Klimczak 3D
+         * *************************************/
         private static void ChangePassword(MySqlConnection conn)
         {
-            // TODO: Implement ChangePassword method
+            Console.Clear();
+            string query = "SELECT workers.id_worker,workers.name,workers.surname,workers.id_role,role.role_name FROM workers INNER JOIN role ON workers.id_role = role.id_role";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.Write(
+                    $"{reader["id_worker"]}. {reader["name"]} {reader["surname"]} / {reader["role_name"]} \n");
+            }
+
+            Console.WriteLine("Podaj ID pracownika do zmiany hasła: ");
+            int id = Convert.ToInt16(Console.ReadLine());
+            Console.Clear();
+            string password = Guid.NewGuid().ToString("d").Substring(1, 8);
+            Console.WriteLine($"Nowe hasło pracownika nr. {id} to {password}");
+            query = $"UPDATE workers SET password = '{password}' WHERE id_worker = {id}";
+            cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("Hasło zmienione pomyślnie!");
+            conn.Close();
+
+            Console.WriteLine("Nacisnij dowolny przycisk aby wrocic do menu");
+            Console.Read();
+            Main(null);
 
         }
 
+
+        /************************************** 
+        * nazwa funkcji:        ShowNotes
+        * parametry wejściowe: conn (połączenie z bazą danych)
+        * wartość zwracana:    Funkcja wyswietla notatki oraz informacje o pracowniku ktory ją dodał
+        * autor:                Bartosz Klimczak 3D
+        * *************************************/
         private static void ShowNotes(MySqlConnection conn)
         {
-            // TODO: Implement ShowNotes method
+            Console.Clear();
+            string query = "SELECT note.id_note,note.id_worker,workers.name,workers.surname,note.content,note.added_at FROM note INNER JOIN workers ON note.id_worker = workers.id_worker";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine($"ID: {reader["id_note"]}");
+                Console.WriteLine($"Pracownik: {reader["name"]} {reader["surname"]}");
+                Console.WriteLine($"Treść: {reader["content"]}");
+                Console.WriteLine($"Dodano: {reader["added_at"]}");
+                Console.WriteLine("-------------------------------------------------");
+            }
+
+            conn.Close();
+
+            Console.WriteLine("Nacisnij dowolny przycisk aby wrocic do menu");
+            Console.Read();
+            Main(null);
+
         }
 
 
@@ -275,6 +330,11 @@ namespace Pracownicy
             {
                 Console.WriteLine($"{reader["name"]} {reader["surname"]} - {reader["role_name"]}");
             }
+
+            Console.WriteLine("Nacisnij dowolny przycisk aby wrocic do menu");
+            Console.Read();
+            Main(null);
+
         }
 
 
@@ -336,6 +396,13 @@ namespace Pracownicy
             Console.Read();
             Main(null);
         }
+
+        /************************************** 
+        * nazwa funkcji:        DeleteWorker
+        * parametry wejściowe: conn (połączenie z bazą danych)
+        * wartość zwracana:    Funkcja umożliwia wybranie pracownika do usunięcia poprzez podanie jego id
+        * autor:                Bartosz Klimczak 3D
+        * *************************************/
         private static void DeleteWorker(MySqlConnection conn)
         {
             Console.Clear();
