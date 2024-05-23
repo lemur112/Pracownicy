@@ -73,3 +73,38 @@ Aplikacja "Pracownicy" została napisana w języku C# na lokalnej bazie danych p
 ## Uruchomienie
 
 Aby uruchomić aplikację, należy skompilować kod źródłowy i uruchomić plik wykonywalny.
+
+
+## BAZA DANYCH:
+
+DROP DATABASE IF EXISTS workgroup;
+CREATE DATABASE workgroup;
+USE workgroup;
+
+CREATE TABLE role(
+    id_role INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    role_name VARCHAR(60)
+);
+
+INSERT INTO role(role_name) VALUES("Administrator"), ("Recruiter"), ("Programmer"), ("HR");
+
+CREATE TABLE workers(
+  	id_worker INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(24) NOT NULL,
+    surname VARCHAR(80) NOT NULL,
+    login VARCHAR(16) NOT NULL,
+    password TEXT NOT NULL,
+    id_role INT(1) NOT NULL,
+    age INT(3) NOT NULL,
+    hire_date DATETIME NOT NULL DEFAULT NOW(),
+    is_working BOOLEAN NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (id_role) REFERENCES role(id_role)
+);
+
+CREATE TABLE note(
+    id_note INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id_worker INT NOT NULL,
+    content TEXT NOT NULL,
+    added_at DATETIME NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (id_worker) REFERENCES workers(id_worker)
+);
