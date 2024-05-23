@@ -15,7 +15,7 @@ Po uruchomieniu aplikacji, użytkownik zostaje poproszony o podanie loginu i has
 
 #### Administrator i IT
 
-    - Dodawanie pracownika wraz z wygenerowanym hasłem i wymaganych danych
+- Dodawanie pracownika wraz z wygenerowanym hasłem i wymaganych danych
     ![image](https://github.com/lemur112/Pracownicy/assets/105245169/9a0d90cf-ffac-4cb5-9ffc-1af2b4e84b43)
 
     - Usuwanie pracownika
