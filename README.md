@@ -38,38 +38,38 @@ Po uruchomieniu aplikacji, użytkownik zostaje poproszony o podanie loginu i has
 
 #### Rekruter
 
-    - Wyświetlanie notatek
-    - Dodawanie notatki
-    - Dodawanie pracownika
-    - Wylogowanie
+- Wyświetlanie notatek
+- Dodawanie notatki
+- Dodawanie pracownika
+- Wylogowanie
 
 
 #### HR
 
-    - Wyświetlanie notatek
-    - Dodawanie notatki
-    - Wyświetlanie listy pracowników
-    - Wyświetlanie stanowisk
-    - Usuwanie pracownika
-    - Dodawanie pracownika
-    - Wylogowanie
+- Wyświetlanie notatek
+- Dodawanie notatki
+- Wyświetlanie listy pracowników
+- Wyświetlanie stanowisk
+- Usuwanie pracownika
+- Dodawanie pracownika
+- Wylogowanie
 
 ### Dodawanie notatki
 
-    Funkcja umożliwia dodanie notatki do bazy danych. Użytkownik podaje treść notatki, a następnie notatka zostaje zapisana w bazie danych.
+Funkcja umożliwia dodanie notatki do bazy danych. Użytkownik podaje treść notatki, a następnie notatka zostaje zapisana w bazie danych.
 
 ### Wyświetlanie notatek
 
-    Funkcja wyświetla wszystkie notatki z bazy danych wraz z informacjami o pracowniku, który dodał notatkę.
+Funkcja wyświetla wszystkie notatki z bazy danych wraz z informacjami o pracowniku, który dodał notatkę.
 
 ### Zmiana hasła
 
-    Funkcja umożliwia zmianę hasła dla wybranego pracownika.Użytkownik wybiera pracownika, wprowadza nowe hasło, a następnie hasło zostaje zmienione w bazie danych.
+Funkcja umożliwia zmianę hasła dla wybranego pracownika.Użytkownik wybiera pracownika, wprowadza nowe hasło, a następnie hasło zostaje zmienione w bazie danych.
 
 ## Technologie
 
-    Aplikacja "Pracownicy" została napisana w języku C# na lokalnej bazie danych przy użyciu frameworka .NET. Do komunikacji z bazą danych wykorzystano bibliotekę MySql.Data.MySqlClient.
+Aplikacja "Pracownicy" została napisana w języku C# na lokalnej bazie danych przy użyciu frameworka .NET. Do komunikacji z bazą danych wykorzystano bibliotekę MySql.Data.MySqlClient.
 
-    ## Uruchomienie
+## Uruchomienie
 
-    Aby uruchomić aplikację, należy skompilować kod źródłowy i uruchomić plik wykonywalny.
+Aby uruchomić aplikację, należy skompilować kod źródłowy i uruchomić plik wykonywalny.
