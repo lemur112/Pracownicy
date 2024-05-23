@@ -1,9 +1,10 @@
 # Pracownicy
-Logowanie do serwisu jest moøliwe tylko dla pracownikÛw. W zaleønoúci od stanowiska, pracownik ma dostÍp do rÛønych funkcji serwisu. Pracownik moøe byÊ:
+Logowanie do serwisu jest mo≈ºliwe tylko dla pracownik√≥w. W zale≈ºno≈õci od stanowiska, pracownik ma dostƒôp do r√≥≈ºnych funkcji serwisu. Pracownik mo≈ºe byƒá:
 	- pracownikiem administracyjnym
-	- pracownikiem dzia≥u kadrowego
-	- pracownikiem dzia≥u IT
-	- pracownikiem dzia≥u rekrutacji
+	- pracownikiem dzia≈Çu kadrowego
+	- pracownikiem dzia≈Çu IT
+	- pracownikiem dzia≈Çu rekrutacji
 
-Przyk≥adowe logowanie do serwisu:
-![Opis obrazka](C:\Users\barte\Downloads\temp\logowanie.png)
+Przyk≈Çadowe logowanie do serwisu:
+![image](https://github.com/lemur112/Pracownicy/assets/105245169/a304a25f-e8aa-44ed-9475-53a803baeb4a)
+
